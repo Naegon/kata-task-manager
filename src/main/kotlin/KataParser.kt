@@ -7,6 +7,7 @@ class KataParser {
                 "-" -> Command(Command.Operator.REMOVE, command[1])
                 "x" -> Command(Command.Operator.SET_TODO, command[1])
                 "o" -> Command(Command.Operator.SET_DONE, command[1])
+                "q" -> Command(Command.Operator.EXIT, command[1])
                 else -> null
             }
         }
