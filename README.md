@@ -1,4 +1,4 @@
-[# Task Manager kata](https://github.com/dmerejkowsky/kata-task-manager)
+# [Task Manager kata](https://github.com/dmerejkowsky/kata-task-manager)
 
 *Goal: practice TDD and clean architecture by implementing a task manager*
 
