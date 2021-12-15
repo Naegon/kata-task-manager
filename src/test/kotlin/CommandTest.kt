@@ -1,6 +1,5 @@
-import Command.Operator
 import Command.Operator.*
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 internal class CommandTest {
@@ -77,4 +76,22 @@ internal class CommandTest {
         assertEquals(taskManager.tasks[0], Task("description"))
     }
 
+    @Test
+    fun executeRemoveAction() {
+        // Given
+        val command = Command(REMOVE, "0")
+        val commandAdd = Command(ADD, "description1")
+        val commandAdd2 = Command(ADD, "description2")
+
+        val taskManager = TaskManager()
+        taskManager.execute(commandAdd)
+        taskManager.execute(commandAdd2)
+
+        assertTrue(taskManager.tasks.contains(Task("description1")))
+        // When
+        taskManager.execute(command)
+
+        // Then
+        assertFalse(taskManager.tasks.contains(Task("description1")))
+    }
 }
