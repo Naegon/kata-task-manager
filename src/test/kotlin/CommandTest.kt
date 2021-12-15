@@ -1,3 +1,5 @@
+import Command.Operator
+import Command.Operator.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -11,7 +13,7 @@ internal class CommandTest {
         val command = Command.parse(input)
 
         // Then
-        assertEquals(command, Command(Command.Operator.ADD, "description"))
+        assertEquals(command, Command(ADD, "description"))
     }
 
     @Test
@@ -23,7 +25,7 @@ internal class CommandTest {
         val command = Command.parse(input)
 
         // Then
-        assertEquals(command, Command(Command.Operator.REMOVE, "2"))
+        assertEquals(command, Command(REMOVE, "2"))
     }
 
     @Test
@@ -35,7 +37,7 @@ internal class CommandTest {
         val command = Command.parse(input)
 
         // Then
-        assertEquals(command, Command(Command.Operator.SET_TODO, "2"))
+        assertEquals(command, Command(SET_TODO, "2"))
     }
 
     @Test
@@ -47,7 +49,7 @@ internal class CommandTest {
         val command = Command.parse(input)
 
         // Then
-        assertEquals(command, Command(Command.Operator.SET_DONE, "2"))
+        assertEquals(command, Command(SET_DONE, "2"))
     }
 
     @Test
@@ -59,7 +61,20 @@ internal class CommandTest {
         val command = Command.parse(input)
 
         // Then
-        assertEquals(command, Command(Command.Operator.EXIT))
+        assertEquals(command, Command(EXIT))
+    }
+
+    @Test
+    fun executeAddAction() {
+        // Given
+        val command = Command(ADD, "description")
+        val taskManager = TaskManager()
+
+        // When
+        taskManager.execute(command)
+
+        // Then
+        assertEquals(taskManager.tasks[0], Task("description"))
     }
 
 }
