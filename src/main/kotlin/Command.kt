@@ -10,7 +10,7 @@ class Command(private val operator: Operator, private val argument: String? = nu
 
         other as Command
 
-        return operator == other.operator
+        return (operator == other.operator && argument == other.argument)
     }
 
     override fun hashCode(): Int = operator.hashCode()
