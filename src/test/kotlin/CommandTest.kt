@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-internal class KataParserTest {
+internal class CommandTest {
     @Test
     fun parse_WithAdd() {
         // Given
