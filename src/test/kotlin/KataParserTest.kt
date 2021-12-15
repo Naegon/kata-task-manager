@@ -26,4 +26,16 @@ internal class KataParserTest {
         assertEquals(command, Command(Command.Operator.REMOVE, "2"))
     }
 
+    @Test
+    fun parse_WithSetTodo() {
+        // Given
+        val input = "x 2"
+
+        // When
+        val command = KataParser.parse(input)
+
+        // Then
+        assertEquals(command, Command(Command.Operator.SET_TODO, "2"))
+    }
+
 }

@@ -1,7 +1,7 @@
 class Command(private val operator: Operator, private val argument: String? = null) {
 
     enum class Operator {
-        ADD, REMOVE
+        ADD, REMOVE, SET_TODO
     }
 
     override fun equals(other: Any?): Boolean {
