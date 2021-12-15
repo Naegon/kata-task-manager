@@ -8,7 +8,7 @@ internal class KataParserTest {
         val input = "+ description"
 
         // When
-        val command = KataParser.parse(input)
+        val command = Command.parse(input)
 
         // Then
         assertEquals(command, Command(Command.Operator.ADD, "description"))
@@ -20,7 +20,7 @@ internal class KataParserTest {
         val input = "- 2"
 
         // When
-        val command = KataParser.parse(input)
+        val command = Command.parse(input)
 
         // Then
         assertEquals(command, Command(Command.Operator.REMOVE, "2"))
@@ -32,7 +32,7 @@ internal class KataParserTest {
         val input = "x 2"
 
         // When
-        val command = KataParser.parse(input)
+        val command = Command.parse(input)
 
         // Then
         assertEquals(command, Command(Command.Operator.SET_TODO, "2"))
@@ -44,7 +44,7 @@ internal class KataParserTest {
         val input = "o 2"
 
         // When
-        val command = KataParser.parse(input)
+        val command = Command.parse(input)
 
         // Then
         assertEquals(command, Command(Command.Operator.SET_DONE, "2"))
@@ -56,7 +56,7 @@ internal class KataParserTest {
         val input = "q"
 
         // When
-        val command = KataParser.parse(input)
+        val command = Command.parse(input)
 
         // Then
         assertEquals(command, Command(Command.Operator.EXIT))
